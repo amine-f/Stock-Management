@@ -18,7 +18,8 @@ Route::post('/register', 'AuthController@registerPost')->name('register.post');
 
 
 //stock controller
-Route::get('/', 'StockController@view')->name('stock');
+//Route::get('/', 'StockController@view')->name('stock');
+Route::get('/', 'AuthController@login')->name('login');
 Route::post('/save-purchase-old-invoice', 'StockController@save_purchaseOLD');
 Route::post('/save-purchase', 'StockController@save_purchase')->name('save_purchase');
 Route::get('/add-stock', 'StockController@index')->name('StockPurchase-purchase');
