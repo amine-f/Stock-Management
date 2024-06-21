@@ -2,8 +2,8 @@
 /**
  * @package php-svg-lib
  * @link    http://github.com/PhenX/php-svg-lib
- * @author  Fabien M�nager <fabien.menager@gmail.com>
- * @license http://www.gnu.org/copyleft/lesser.html GNU Lesser General Public License
+ * @author  Fabien Ménager <fabien.menager@gmail.com>
+ * @license GNU LGPLv3+ http://www.gnu.org/copyleft/lesser.html
  */
 
 namespace Svg\Surface;
@@ -46,7 +46,7 @@ class SurfaceGmagick implements SurfaceInterface
         $image->newimage($this->width, $this->height);
         $image->drawimage($this->canvas);
 
-        $tmp = tempnam("", "gm");
+        $tmp = tempnam(sys_get_temp_dir(), "gm");
 
         $image->write($tmp);
 
@@ -138,7 +138,7 @@ class SurfaceGmagick implements SurfaceInterface
                 $data = base64_decode(substr($data, 7));
             }
 
-            $image = tempnam("", "svg");
+            $image = tempnam(sys_get_temp_dir(), "svg");
             file_put_contents($image, $data);
         }
 
@@ -202,7 +202,7 @@ class SurfaceGmagick implements SurfaceInterface
         $this->fill();
     }
 
-    public function rect($x, $y, $w, $h)
+    public function rect($x, $y, $w, $h, $rx = 0, $ry = 0)
     {
         if (self::DEBUG) echo __FUNCTION__ . "\n";
         $this->canvas->rect($x, $y, $w, $h);

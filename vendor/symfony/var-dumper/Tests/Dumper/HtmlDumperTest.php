@@ -22,32 +22,36 @@ class HtmlDumperTest extends TestCase
 {
     public function testGet()
     {
+        if (ini_get('xdebug.file_link_format') || get_cfg_var('xdebug.file_link_format')) {
+            $this->markTestSkipped('A custom file_link_format is defined.');
+        }
+
         require __DIR__.'/../Fixtures/dumb-var.php';
 
         $dumper = new HtmlDumper('php://output');
         $dumper->setDumpHeader('<foo></foo>');
         $dumper->setDumpBoundaries('<bar>', '</bar>');
         $cloner = new VarCloner();
-        $cloner->addCasters(array(
+        $cloner->addCasters([
             ':stream' => function ($res, $a) {
                 unset($a['uri'], $a['wrapper_data']);
 
                 return $a;
             },
-        ));
+        ]);
         $data = $cloner->cloneVar($var);
 
         ob_start();
         $dumper->dump($data);
         $out = ob_get_clean();
         $out = preg_replace('/[ \t]+$/m', '', $out);
-        $var['file'] = htmlspecialchars($var['file'], ENT_QUOTES, 'UTF-8');
-        $intMax = PHP_INT_MAX;
+        $var['file'] = htmlspecialchars($var['file'], \ENT_QUOTES, 'UTF-8');
+        $intMax = \PHP_INT_MAX;
         preg_match('/sf-dump-\d+/', $out, $dumpId);
         $dumpId = $dumpId[0];
         $res = (int) $var['res'];
 
-        $r = defined('HHVM_VERSION') ? '' : '<a class=sf-dump-ref>#%d</a>';
+        $r = \defined('HHVM_VERSION') ? '' : '<a class=sf-dump-ref>#%d</a>';
         $this->assertStringMatchesFormat(
             <<<EOTXT
 <foo></foo><bar><span class=sf-dump-note>array:24</span> [<samp>

@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Stock Management showcase</title>
+    <title>Stock Management ETAP</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
 
@@ -218,7 +218,7 @@
                 {{-- <span class="logo-mini"><img src="#" width="50px" height="40px"></span> --}}
 
                 <!-- logo for regular state and mobile devices -->
-                <span class="logo-lg">Sangit</b></span>
+                <span class="logo-lg">Stock Management</b></span>
             </a>
             <!-- Header Navbar: style can be found in header.less -->
             <nav class="navbar navbar-static-top">
@@ -228,6 +228,7 @@
             </a>
 
                 <div class="navbar-custom-menu">
+                    
                     <ul class="nav navbar-nav">
 
 
@@ -243,8 +244,9 @@
 
                                     <p>
                                         Admin
-                                        <small>github.com/sangit0</small>
+                                        <small></small>
                                     </p>
+                                    
                                 </li>
                                 <!-- Menu Body -->
                                 <li class="user-body">
@@ -259,6 +261,7 @@
                                     </div>
                                 </li>
                             </ul>
+                            
                         </li>
                     </ul>
                 </div>
@@ -274,8 +277,8 @@
                         <img src="employee_images/photo_default_emplyee1.png" class="img-circle" alt="User Image">
                     </div>
                     <div class="pull-left info">
-                        <p>Sangit</p>
-                        <small>Developer</small>
+                        <p>User</p>
+                        <small></small>
 
                     </div>
                 </div>
@@ -352,7 +355,7 @@
             <div class="pull-right hidden-xs">
                 <b>Version</b> 1.0 Beta
             </div>
-            <strong>Copyright &copy; 2018 <a href="https://github.com/sangit0">Sangit</a>.</strong> All rights reserved.
+            <strong>Copyright &copy; 2024 Nour Elleuch.</strong> All rights reserved.
         </footer>
 
         <!-- Add the sidebar's background. This div must be placed
